@@ -4,12 +4,17 @@ const config = require("./configurations/config");
 const cookieParser = require("cookie-parser");
 const globalErrorHandler = require("./middleware/globalErrorHandler");
 const ApiError = require("./utils/ApiError");
+const cors = require("cors");
 
 //
 const server = express();
 server.use(cookieParser());
 server.use(express.json());
-
+server.use(
+  cors({
+    origin: "*",
+  })
+);
 // database connection
 dbConnection;
 
